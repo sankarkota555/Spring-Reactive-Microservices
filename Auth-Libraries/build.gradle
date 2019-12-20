@@ -1,0 +1,51 @@
+buildscript {
+    
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+    id 'eclipse'
+    // Apply the application plugin to add support for building a CLI application
+    id 'application'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${ioSpringDependencyVersion}"
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+repositories {
+     mavenCentral()
+     maven {
+        url 'https://repo.spring.io/milestone'
+    }
+}
+
+// Use java 11
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+    implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+}
+
+application {
+    // Define the main class for the application
+    mainClassName = 'com.tapas.auth.AuthApplication'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudDepndencyVersion}"
+	}
+}
