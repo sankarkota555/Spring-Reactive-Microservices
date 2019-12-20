@@ -21,8 +21,8 @@ import com.reactive.app.common.repository.EnvironmentDetailsRepository;
 
 @Configuration
 @PropertySource("classpath:common.properties")
-@EnableReactiveMongoRepositories(basePackages = "com.tapas")
-@EnableMongoRepositories(basePackages = "com.tapas")
+@EnableReactiveMongoRepositories(basePackages = "com.reactive")
+@EnableMongoRepositories(basePackages = "com.reactive")
 @EnableAsync
 @EnableTransactionManagement
 @EnableMongoAuditing
