@@ -10,8 +10,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 
 import com.reactive.app.authentication.constants.AuthenticationConstants;
+import com.reactive.app.authentication.service.CustomUserDetailsService;
 import com.reactive.app.authentication.service.TapasMongoAuthorizationCodeServices;
-import com.reactive.app.authentication.service.TapasUserDetailsService;
 
 /**
  * Spring OAuth2 authorization server configuration
@@ -30,7 +30,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 	private DefaultTokenServices authorizationServerTokenServices;
 
 	@Autowired
-	private TapasUserDetailsService tapasUserDetailsService;
+	private CustomUserDetailsService customUserDetailsService;
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -47,7 +47,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
 		endpoints.authorizationCodeServices(mongoAuthorizationCodeServices)
 				.tokenServices(authorizationServerTokenServices).authenticationManager(authenticationManager)
-				.userDetailsService(tapasUserDetailsService);
+				.userDetailsService(customUserDetailsService);
 	}
 
 	@Override
