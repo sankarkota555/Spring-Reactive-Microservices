@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 
 import com.reactive.app.authentication.constants.AuthenticationConstants;
 import com.reactive.app.authentication.service.CustomUserDetailsService;
-import com.reactive.app.authentication.service.TapasMongoAuthorizationCodeServices;
+import com.reactive.app.authentication.service.MongoAuthorizationCodeServices;
 
 /**
  * Spring OAuth2 authorization server configuration
@@ -24,7 +24,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
-	private TapasMongoAuthorizationCodeServices mongoAuthorizationCodeServices;
+	private MongoAuthorizationCodeServices mongoAuthorizationCodeServices;
 
 	@Autowired
 	private DefaultTokenServices authorizationServerTokenServices;
@@ -34,8 +34,8 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory().withClient(AuthenticationConstants.TAPAS_CLIENT_ID)
-				.secret(AuthenticationConstants.TAPAS_CLIENT_SECRET)
+		clients.inMemory().withClient(AuthenticationConstants.OAUTH_CLIENT_ID)
+				.secret(AuthenticationConstants.OAUTH_CLIENT_SECRET)
 				.authorizedGrantTypes("password", "authorization_code", "refresh_token").authorities("ADMIN")
 				.scopes("all").resourceIds(AuthenticationConstants.RESOURCE_ID)
 				.accessTokenValiditySeconds(AuthenticationConstants.ACCESS_TOKEN_EXPIRY_TIME)

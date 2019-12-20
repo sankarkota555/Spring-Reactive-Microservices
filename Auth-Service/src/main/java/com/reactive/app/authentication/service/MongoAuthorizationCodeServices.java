@@ -11,7 +11,7 @@ import com.reactive.app.authentication.model.OAuth2AuthorizationCodeEntity;
 import com.reactive.app.authentication.repository.OAuth2AuthorizationCodeRepository;
 
 @Service
-public class TapasMongoAuthorizationCodeServices extends RandomValueAuthorizationCodeServices {
+public class MongoAuthorizationCodeServices extends RandomValueAuthorizationCodeServices {
 
 	@Autowired
 	private OAuth2AuthorizationCodeRepository oAuth2AuthorizationCodeRepository;

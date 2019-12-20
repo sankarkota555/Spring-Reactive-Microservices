@@ -46,7 +46,7 @@ public class RegistrationMailService {
 			UserEntity userEntity = loginEntity.getUserEntity();
 			Map<String, Object> model = new HashMap<>();
 			model.put("name", userEntity.getFirstName());
-			model.put("signature", "TAPAS Team");
+			model.put("signature", "Reactive Team");
 			String url = environmentDetails.getApplicationUrl() + CommonRouteConstants.USER_MANAGEMENT_SERVICE_PATTERN
 					+ CommonRouteConstants.USER_VERIFICATION_ROUTE + CommonRouteConstants.VERIFY_EMAIL_ROUTE + "/"
 					+ loginEntity.getId() + "/" + loginEntity.getVerificationKey();

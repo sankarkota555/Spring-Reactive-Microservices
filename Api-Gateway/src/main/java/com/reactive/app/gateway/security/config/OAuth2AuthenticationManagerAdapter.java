@@ -9,7 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 
-import com.tapas.authentication.constants.AuthenticationConstants;
+import com.reactive.app.authentication.constants.AuthenticationConstants;
 
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;

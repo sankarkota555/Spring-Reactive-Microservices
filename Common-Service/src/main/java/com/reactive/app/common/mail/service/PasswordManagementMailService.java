@@ -35,7 +35,7 @@ public class PasswordManagementMailService {
 		UserEntity userEntity = loginEntity.getUserEntity();
 		Map<String, Object> model = new HashMap<>();
 		model.put("name", userEntity.getFirstName());
-		model.put("signature", "TAPAS Team");
+		model.put("signature", "Reactive Team");
 		model.put("mailBody", mailBody);
 
 		ContactDetails emailContact = userEntity.getContactDetails().stream()

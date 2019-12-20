@@ -147,8 +147,8 @@ public class OAuth2LoginSuccessController {
 	public void initialisation() {
 		// Initialize basic authentication value
 		this.basicAuthenticationString = String.format("Basic %s",
-				new String(Base64.getEncoder().encode(String.format("%s:%s", AuthenticationConstants.TAPAS_CLIENT_ID,
-						AuthenticationConstants.TAPAS_CLIENT_SECRET_TEXT).getBytes())));
+				new String(Base64.getEncoder().encode(String.format("%s:%s", AuthenticationConstants.OAUTH_CLIENT_ID,
+						AuthenticationConstants.OAUTH_CLIENT_SECRET_TEXT).getBytes())));
 
 	}
 
