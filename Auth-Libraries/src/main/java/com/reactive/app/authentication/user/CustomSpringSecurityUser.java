@@ -6,13 +6,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
 import org.springframework.security.core.userdetails.User;
 
-public class TapasSpringSecurityUser extends User {
+public class CustomSpringSecurityUser extends User {
 
 	private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
 	private String id;
 
-	public TapasSpringSecurityUser(String username, String password, boolean enabled, boolean accountNonExpired,
+	public CustomSpringSecurityUser(String username, String password, boolean enabled, boolean accountNonExpired,
 			boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities,
 			String id) {
 
@@ -44,7 +44,7 @@ public class TapasSpringSecurityUser extends User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TapasSpringSecurityUser other = (TapasSpringSecurityUser) obj;
+		CustomSpringSecurityUser other = (CustomSpringSecurityUser) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
