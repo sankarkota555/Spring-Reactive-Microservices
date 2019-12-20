@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: Device-Control-Service
+  profiles:    active: local
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    ssl: false  data:    redis:      repositories:        enabled: false
+        
+server:  port: 8380
+
+mqtt:
+  publisher:
+    clientName: Spring_Publisher_Client_${spring.profiles.active}_env_${random.int}
+  subscriber:
+    clientName: Spring_Subscriber_Client_${spring.profiles.active}_env_${random.int}
