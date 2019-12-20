@@ -1,0 +1,3 @@
+
+redisson:
+    config: redissonWorkerNodeConfig-local.yaml

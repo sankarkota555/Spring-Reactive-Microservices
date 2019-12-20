@@ -1,0 +1,12 @@
+
+redisson:
+    config: redissonWorkerNodeConfig-docker.yaml
+
+eureka:
+  instance:
+    # Give your eureka details
+    health-check-url: 
+  client:
+    service-url:
+       # Give your eureka details
+       defaultZone: 

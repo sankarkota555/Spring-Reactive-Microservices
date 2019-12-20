@@ -1,0 +1,12 @@
+
+singleServerConfig:
+  address: "redis://127.0.0.1:6379"
+#
+#clusterServersConfig:
+#  nodeAddresses:
+#  - "//redis://127.0.0.1:6379"
+#  scanInterval: 1000
+  
+threads: 32
+
+nettyThreads: 64
