@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.reactive.app.authentication.constnats.OAuth2LoginConstnats;
-import com.reactive.app.authentication.user.TapasSpringSecurityUser;
+import com.reactive.app.authentication.user.CustomSpringSecurityUser;
 import com.reactive.app.common.constants.QueryParameters;
 import com.reactive.app.common.model.LoginEntity;
 import com.reactive.app.common.model.RoleEntity;
@@ -24,9 +24,9 @@ import com.reactive.app.common.model.UserEntity;
 import com.reactive.app.common.repository.LoginRepository;
 
 @Service
-public class TapasUserDetailsService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
 
-	private static final Logger log = LoggerFactory.getLogger(TapasUserDetailsService.class);
+	private static final Logger log = LoggerFactory.getLogger(CustomUserDetailsService.class);
 
 	@Autowired
 	private LoginRepository loginRepository;
@@ -80,7 +80,7 @@ public class TapasUserDetailsService implements UserDetailsService {
 			} else {
 				userPassword = loginObj.getPassword();
 			}
-			return new TapasSpringSecurityUser(loginObj.getUsername(), "{noop}" + userPassword, enabled,
+			return new CustomSpringSecurityUser(loginObj.getUsername(), "{noop}" + userPassword, enabled,
 					accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities, userEntity.getId());
 		} else {
 			log.info("User with username:{} not found in DB", username);

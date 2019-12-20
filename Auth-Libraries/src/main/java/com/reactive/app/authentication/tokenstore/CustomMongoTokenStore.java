@@ -22,9 +22,9 @@ import com.reactive.app.authentication.repository.OAuth2AccessTokenRepository;
 import com.reactive.app.authentication.repository.OAuth2RefreshTokenRepository;
 
 @Component
-public class TapasMongoTokenStore implements TokenStore {
+public class CustomMongoTokenStore implements TokenStore {
 
-	private static final Logger log = LoggerFactory.getLogger(TapasMongoTokenStore.class);
+	private static final Logger log = LoggerFactory.getLogger(CustomMongoTokenStore.class);
 
 	@Autowired
 	private OAuth2AccessTokenRepository oAuth2AccessTokenRepository;
