@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Auth-Service
+  profiles:    active: local
+server:  port: 8180
+  
+feign:  hystrix:    enabled: true

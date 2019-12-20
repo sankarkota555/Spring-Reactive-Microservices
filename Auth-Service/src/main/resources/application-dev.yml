@@ -1,0 +1,15 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google: 
+          # Give your google client id and secret
+            clientId: 
+            clientSecret: 
+            redirect-uri: "{baseUrl}/oauth2/callback/{registrationId}"
+          # Give your facebook client id and secret
+          facebook: 
+            clientId: 
+            clientSecret: 
+            redirect-uri: "{baseUrl}/oauth2/callback/{registrationId}"        
