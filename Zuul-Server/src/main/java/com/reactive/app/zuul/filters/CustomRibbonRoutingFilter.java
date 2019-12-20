@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.reactive.app.authentication.user.TapasSpringSecurityUser;
+import com.reactive.app.authentication.user.CustomSpringSecurityUser;
 import com.reactive.app.common.constants.HeaderConstants;
 
 @Component
@@ -62,12 +62,12 @@ public class CustomRibbonRoutingFilter extends ZuulFilter {
 			return null;
 		}
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (principal instanceof TapasSpringSecurityUser) {
-			TapasSpringSecurityUser tapasSpringSecurityUser = (TapasSpringSecurityUser) principal;
-			currentRequestContext.addZuulRequestHeader(HeaderConstants.LOGIN_USER_ID, tapasSpringSecurityUser.getId());
+		if (principal instanceof CustomSpringSecurityUser) {
+			CustomSpringSecurityUser springSecurityUser = (CustomSpringSecurityUser) principal;
+			currentRequestContext.addZuulRequestHeader(HeaderConstants.LOGIN_USER_ID, springSecurityUser.getId());
 			// TODO: if logged in user role is not needed, then remove below code
 			currentRequestContext.addZuulRequestHeader(HeaderConstants.LOGIN_USER_ROLE,
-					tapasSpringSecurityUser.getAuthorities().toArray()[0].toString());
+					springSecurityUser.getAuthorities().toArray()[0].toString());
 		}
 		log.info("Processing request:{}", request.getRequestURI());
 		return ribbonRoutingFilter.run();
