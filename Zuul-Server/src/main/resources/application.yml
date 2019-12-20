@@ -1,0 +1,15 @@
+
+spring:  application:    name: Zuul-Server
+  profiles:    active: local
+server:  port: 8082
+  
+zuul:  retryable: false
+  sensitive-headers:  - Cookie
+  - Set-Cookie
+  routes:    Auth-Service:
+        path: /auth/**
+    User-Management-Service:
+        path: /um/**
+    Mqtt-Service:
+        path: /ms/**
+      
