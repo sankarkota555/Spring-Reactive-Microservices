@@ -1,0 +1,35 @@
+
+server:
+  port: 8089
+
+spring:  application:    name: Api-Gateway
+  profiles:    active: local
+  cloud:    gateway:
+      globalcors:        cors-configurations:          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"      default-filters:        - RemoveRequestHeader=X-Request-Foo 
+      routes:
+        # Auth-Service route config        - id: ${service-names.authentication-service-name}
+          predicates:            - Path=/auth/**
+          uri: lb://${service-names.authentication-service-name}/
+          filters:            - StripPrefix=1
+        
+        # User-Management-Service route config
+        - id: ${service-names.user-management-service-name}
+          predicates:            - Path=/um/**
+          uri: lb://${service-names.user-management-service-name}/
+          filters:
+            - StripPrefix=1
+      
+        # Mqtt-Service route config
+        - id: ${service-names.mqtt-service-name}
+          predicates:            - Path=/dc/**
+          uri: lb://${service-names.mqtt-service-name}/
+          filters:
+            - StripPrefix=1
+         # Auth-Service route config
+        - id: ${service-names.authentication-service-name}
+          predicates:
+            - Path=/oauth2/callback/**
+          uri: lb://${service-names.authentication-service-name}/      
