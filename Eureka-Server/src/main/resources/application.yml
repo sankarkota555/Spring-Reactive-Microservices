@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Eureka-Server
+server:  port: 8761
+eureka:  instance:    prefer-ip-address: false
+    hostname: localhost
+    instance-id: reactive:${spring.application.name}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 30
+  client:    register-with-eureka: false
+    fetch-registry: false      
