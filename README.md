@@ -57,6 +57,13 @@ Components in this project.
     1. Acts as gateway.
     2. OAuth2 resource server.
     3. Doesn't support WebSocket.
+----------
 
+##### Running the application
 
-
+1. clone the application into your machine.
+2. Import projects into  `eclipse` and perform `refresh gradle project` on all projects.
+3. Add [lombok](https://projectlombok.org/) to your eclipse, follow the steps [here](https://projectlombok.org/setup/eclipse).
+4. Setup local Mongo DB and add your connection details in existing properties files.
+5. Start the mongo DB with `replica set` enabled mode.
+6. To run a jar file use this command `java -jar jarPath --spring.profiles.active=activeProfileName`
