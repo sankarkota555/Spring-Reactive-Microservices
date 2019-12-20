@@ -8,11 +8,11 @@ public class AuthenticationConstants {
 
 	public static final String RESOURCE_ID = "oauth2-resource";
 
-	public static final String TAPAS_CLIENT_ID = "tapasOAuth2ClientApp";
+	public static final String OAUTH_CLIENT_ID = "OAuth2ClientApp";
 
-	public static final String TAPAS_CLIENT_SECRET_TEXT = "123456";
+	public static final String OAUTH_CLIENT_SECRET_TEXT = "123456";
 
-	public static final String TAPAS_CLIENT_SECRET = "{noop}" + TAPAS_CLIENT_SECRET_TEXT;
+	public static final String OAUTH_CLIENT_SECRET = "{noop}" + OAUTH_CLIENT_SECRET_TEXT;
 
 	public static final Integer ACCESS_TOKEN_EXPIRY_TIME = 60 * 60 * 24; // 24 HRS
 

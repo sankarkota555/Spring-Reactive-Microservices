@@ -41,7 +41,7 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'com.tapas.auth.AuthApplication'
+    mainClassName = 'com.auth.AuthApplication'
 }
 
 dependencyManagement {

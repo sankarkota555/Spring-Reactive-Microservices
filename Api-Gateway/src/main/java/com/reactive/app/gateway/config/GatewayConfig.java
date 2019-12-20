@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
+import com.reactive.app.authentication.user.CustomSpringSecurityUser;
 import com.reactive.app.common.constants.CommonRouteConstants;
 import com.reactive.app.common.constants.HeaderConstants;
-import com.tapas.authentication.user.TapasSpringSecurityUser;
 
 import reactor.core.publisher.Mono;
 
@@ -46,15 +46,15 @@ public class GatewayConfig {
 
 				Object principal = t.getAuthentication().getPrincipal();
 
-				if (principal instanceof TapasSpringSecurityUser) {
+				if (principal instanceof CustomSpringSecurityUser) {
 
-					TapasSpringSecurityUser tapasSpringSecurityUser = (TapasSpringSecurityUser) principal;
+					CustomSpringSecurityUser user = (CustomSpringSecurityUser) principal;
 					request.mutate().headers(headers -> {
-						headers.add(HeaderConstants.LOGIN_USER_ID, tapasSpringSecurityUser.getId());
+						headers.add(HeaderConstants.LOGIN_USER_ID, user.getId());
 
 						// TODO: if logged in user role is not needed, then remove below code
 						headers.add(HeaderConstants.LOGIN_USER_ROLE,
-								tapasSpringSecurityUser.getAuthorities().toArray()[0].toString());
+								user.getAuthorities().toArray()[0].toString());
 					});
 
 				}

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: User-Management-Service
+  profiles:    active: local
+server:  port: 8280
